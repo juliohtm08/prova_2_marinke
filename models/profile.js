@@ -12,6 +12,14 @@ module.exports = (sequelize, DataTypes) => {
                 foreignKey: "client_id", // Campo de chave estrangeira
                 as: "deposit", // Nome do alias para facilitar consultas
             });
+            profile.hasMany(models.contract, {
+                foreignKey: "client_id", // Campo de chave estrangeira
+                as: "clientContracts", // Nome do alias para facilitar consultas
+            });
+            profile.hasMany(models.contract, {
+                foreignKey: "contractorid", // Campo de chave estrangeira
+                as: "contractorContracts", // Nome do alias para facilitar consultas
+            });
         }
     }
     profile.init(
